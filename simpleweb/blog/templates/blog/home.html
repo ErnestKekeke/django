@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Post</title>
+</head>
+<body>
+    <h2>Add a New Post</h2>
+    <form method="post" action="{% url 'blog:addpost' %}">
+        {% csrf_token %}
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br><br>
+
+        <label>Content:</label><br>
+        <textarea name="content" rows="5" cols="40" required></textarea><br><br>
+
+        <button type="submit">Add Post</button>
+    </form>
+
+
+        <!-- templates/age_form.html -->
+    <form method="post" action="{% url 'blog:agepage' %}">
+        {% csrf_token %}
+        <label for="age">Enter your age:</label>
+        <input type="number" name="age" id="age" required>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

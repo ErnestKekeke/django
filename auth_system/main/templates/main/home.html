@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Login</title>
+</head>
+<body>
+
+    <h2> Welcome to Home Page</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, corrupti.</p>
+
+    <h2>Login</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <p style="color: red;">{{ message }}</p>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <p style="color: green;">{{ message }}</p>
+            {% else %}
+                <p>{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+        <h1>Welcome to the Home Page</h1>
+
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.first_name }}!</p>
+        <p>You are logged in as {{ user.username }}.</p>
+
+        <a href="{% url 'main:logout' %}">Logout</a>
+    {% else %}
+        <p>You are not logged in.</p>
+
+        <form method="POST" action="{% url 'main:login' %}">
+            {% csrf_token %}
+            <label>Username or Email:</label><br>
+            <input type="text" name="username_or_email" placeholder="Username or Email" required><br><br>
+
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p>No account? <a href="{% url 'main:registration' %}">Register here</a></p>
+
+    {% endif %}
+
+</body>
+</html>

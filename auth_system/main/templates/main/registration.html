@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+
+<h2>Register</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <p style="color:red;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+ <form method="POST" action="{% url 'main:register' %}">
+        {% csrf_token %}
+
+        <!-- This references the form instance from the view -->
+        <p>
+            {{ form.username.label_tag }}<br>
+            {{ form.username }}<br>
+            <!-- {{ form.username }} This produces HTML like:
+            <input type="text" name="username" maxlength="150" required id="id_username"> -->
+            {{ form.username.errors }}
+        </p>
+
+        <p>
+            {{ form.first_name.label_tag }}<br>
+            {{ form.first_name }}<br>
+            {{ form.first_name.errors }}
+        </p>
+
+        <p>
+            {{ form.last_name.label_tag }}<br>
+            {{ form.last_name }}<br>
+            {{ form.last_name.errors }}
+        </p>
+
+        <p>
+            {{ form.email.label_tag }}<br>
+            {{ form.email }}<br>
+            {{ form.email.errors }}
+        </p>
+
+        <p>
+            {{ form.password1.label_tag }}<br>
+            {{ form.password1 }}<br>
+            {{ form.password1.errors }}
+        </p>
+
+        <p>
+            {{ form.password2.label_tag }}<br>
+            {{ form.password2 }}<br>
+            {{ form.password2.errors }}
+        </p>
+
+        <button type="submit">Register</button>
+</form>
+
+<a href="{% url 'main:home' %}">Go home to login</a>
+
+
+</body>
+</html>
+
+
+

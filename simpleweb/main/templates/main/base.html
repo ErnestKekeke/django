@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'main/styles.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+</head>
+<body>
+    <img style="width: 50px;" src="{% static 'main/images/logo.png' %}" alt="Logo">
+    <nav>
+        <a href="{% url 'main:home' %}">Home</a> 
+        <a href="{% url 'main:about' %}">About</a>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <button id="btn">Click Me</button>
+
+    <script src="{% static 'main/script.js' %}"></script>
+</body>
+</html>

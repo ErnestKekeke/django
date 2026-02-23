@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Blog</title>
+</head>
+<body>
+
+    <h2>Blog Posts</h2>
+
+    {% comment %}
+    <!-- Create or add new post -->
+    {% endcomment %}
+        <h3>Create Post</h3>
+    <form action="{% url 'blog:createpost'%}" method="post">
+        {% csrf_token %}
+        title: <input type="text" name="title" placeholder="title"/> <br/>
+        body: <input type="text" name="body" placeholder="description"/> <br/>
+        <button type="submit">Enter</button>
+    </form>
+
+
+    {% comment %}
+    <!-- edit or update an existing post
+     <form method="POST" action="{% url 'post_update' post.id %}"></form> -->
+    {% endcomment %}
+        <h3>Edit Post</h3>
+    <form action="{% url 'blog:editpost' 2%}" method="post">
+        {% csrf_token %}
+        title: <input type="text" name="title" placeholder="title"/> <br/>
+        body: <input type="text" name="body" placeholder="description"/> <br/>
+        <button type="submit">Enter</button>
+    </form>
+
+
+    {% comment %}
+    <!-- delete an existing post -->
+     <!-- <form method="POST" action="{% url 'post_delete' post.id %}"></form> -->
+    {% endcomment %}
+        <h3>Delete Post</h3>
+    <form action="{% url 'blog:deletepost' 3%}" method="post">
+        {% csrf_token %}
+        <button type="submit">Enter</button>
+    </form>
+    
+</body>
+</html>
