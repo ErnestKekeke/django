@@ -1,0 +1,90 @@
+/* shop.css */
+
+/* Page setup */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page heading */
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #222;
+}
+
+/* Product card */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px;
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Product image */
+.product-card img {
+    max-width: 40%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Product name and price */
+.product-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product-card p.price {
+    font-weight: bold;
+    color: #e91e63;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button, a.button-link {
+    display: inline-block;
+    background-color: #2196f3;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover, a.button-link:hover {
+    background-color: #1976d2;
+}
+
+/* Auth section */
+.auth-message {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.auth-message a {
+    margin: 0 10px;
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.auth-message a:hover {
+    text-decoration: underline;
+}

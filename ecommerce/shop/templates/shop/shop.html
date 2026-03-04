@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'shop/css/shop.css' %}">
+
+<h2>Shop</h2>
+
+{% for product in products %}
+    <div>
+        <h3>{{ product.name }}</h3>
+        <p>${{ product.price }}</p>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="50">
+        <a href="{% url 'shop:product' product.id %}">View</a>
+
+        <!-- Add to Cart Form -->
+        <form method="POST" action="{% url 'shop:add-cart' product.id %}">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+{% endfor %}
+
+<!-- ............... -->
+{% if user.is_authenticated %}
+    <p>Hello, {{ user.first_name }}!</p>
+    <p>You are logged in as {{ user.username }}.</p>
+{% else %}
+    <p>You are not login</p>
+    <a href="{% url 'shop:register' %}">Register</a>
+    <a href="{% url 'shop:login' %}">Login</a>
+{% endif %}
+<!-- ............... -->
+
+{% endblock %}

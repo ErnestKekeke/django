@@ -1,0 +1,30 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+
+# Django database
+db.sqlite3
+
+# Django migrations (optional: include if you want to track migrations)
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# Static files
+staticfiles/
+media/
+
+# VSCode settings (optional)
+.vscode/
+
+# PyCharm settings (optional)
+.idea/
+
+# Environment variables
+.env
+
+# macOS files (optional)
+.DS_Store

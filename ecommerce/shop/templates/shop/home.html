@@ -1,0 +1,29 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+
+{% for message in messages %}
+    <p style="color:darkgoldenrod;">{{ message }}</p>
+{% endfor %}
+
+<h2>Home Page</h2>
+<p>This is eCommerce Shop</p>
+
+
+{% if user.is_authenticated %}
+    <p>Hello, {{ user.first_name }}!</p>
+    <p>You are logged in as {{ user.username }}.</p>
+        <!-- # straight to logout_user function -->
+     <a href="{% url 'shop:logout-user' %}">Logout</a>
+{% else %}
+    <p>You are not login</p>
+    <!-- # there are for page view -->
+    <a href="{% url 'shop:register' %}">Register</a>
+    <a href="{% url 'shop:login' %}">Login</a> 
+{% endif %}
+
+
+{% endblock %}
+
+
+
+

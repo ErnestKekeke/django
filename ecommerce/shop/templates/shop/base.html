@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple eCommerce</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'shop:home'%}">Home</a> |
+        <a href="{% url 'shop:shop'%}">Shop</a> |
+        <a href="{% url 'shop:cart'%}">Cart</a> 
+
+        {% if user.is_authenticated %}
+          <!-- # page i.e: logout user logic -->
+          <a href="{% url 'shop:logout-user' %}">Logout</a>
+        {% else %}
+            <!-- # page i.e: login page -->
+            <a href="{% url 'shop:login' %}">Login</a> 
+        {% endif %}
+    </nav>
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

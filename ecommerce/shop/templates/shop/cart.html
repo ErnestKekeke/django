@@ -1,0 +1,29 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+
+<h2>Your Cart</h2>
+
+{% if products %}
+    {% for product in products %}
+        <div>
+            <h3>{{ product.name }}</h3>
+            <p>Price: ${{ product.price }}</p>
+            <p>Quantity: {{ product.quantity }}</p>
+            <p>Total: ${{ product.total_price }}</p>
+        </div>
+   
+        <a href="{% url 'shop:add-item' product.id %}">add</a>
+        <a href="{% url 'shop:remove-item' product.id %}">remove</a>
+
+        <hr>
+
+    {% endfor %}
+
+    <h3>Grand Total: ${{ total }}</h3>
+    <a href="{% url 'shop:checkout' %}">Proceed to Checkout</a>
+
+{% else %}
+    <p>Your cart is empty.</p>
+{% endif %}
+
+{% endblock %}
